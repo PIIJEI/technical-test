@@ -1,0 +1,229 @@
+$dark: #1c1c1c;
+$white: #fff;
+$gray: #f4f4f4;
+$buttonC: #4e4e4e;
+$buttonCH: #5b5b5b;
+
+$normal: 400;
+$bold: 700;
+
+main {
+	width: 960px;
+	max-width: 100%;
+	@include clearfix;
+	clear: both;
+	display: block;
+	margin: 0 auto;
+
+	#container {
+		.breadcrumb {
+			position: relative;
+			display: block;
+			margin: 0;
+			&__navigation {
+				ul {
+					list-style-type: none;
+					list-style-position: outside;
+					margin: 0;
+    				padding: 0;
+					overflow: hidden;
+					li {
+						float: left;
+						&:after {
+							display: block;
+							content:' / ';
+							font-size: .8em;
+							float: right;
+						}//after
+						&:last-of-type {
+							a {
+								font-weight: $bold;
+							}//a
+							&:after {
+								display: block;
+								content: '';	
+							}//after
+						}//last-of-type
+						a {
+							font-size: .75em;
+							padding: 3px 6px;
+							text-decoration: none;
+							color: $dark;
+							font-weight: $normal;
+							&:hover {
+								color: gray;
+							}//hover
+						}//a
+					}//li
+				}//ul
+			}//breadcrumb navigation	
+			&__title {
+				padding: 4px 6px 4px 6px;
+				color: $dark;
+				overflow: hidden;
+			}//title
+		}//breadcrumb
+		#map {
+			height: 350px;
+			max-width: 960px;
+			width: 100%;
+			// margin-bottom: 25px;
+		}//map
+		.wrapper {
+			margin: 40px 0;
+			padding: 20px 0;
+			word-break: break-all;
+			@include mqMax('tablet'){
+				margin: 0;
+				padding: 0;
+			}//mqmax wrapper
+			.column {
+				
+				/* MQ MAX HERE */
+				@include mqMax('tablet') {
+					&__left {
+						h2 {
+							text-align: center;
+						}//h2
+						form {
+							padding: 35px 0;
+							label, input, textarea {
+								padding: 10px 0;
+								margin: 5px 0;
+								display: block;
+								width: 75%;
+								text-align: center;
+								@include push--auto;
+							}//label, input, textarea
+							label {
+								font-size: .85em;
+							}//label
+							input[type="submit"] {
+								margin-top: 25px;
+								@include push--auto;
+								border-radius: none;
+								outline: none;
+								border: 1px solid transparent;
+								box-shadow: none;
+								width: 240px;
+								font-size: .75em;
+								color: $white;
+								background: $buttonC;
+								text-transform: uppercase;
+								font-weight: $normal;
+								letter-spacing: 0.05em;
+								@include transition(.1s all ease-in-out);
+								&:hover {
+									border: 1px solid $buttonC;
+									background: $buttonCH;
+									cursor: pointer;
+								}//hover
+							}//input submit
+							input[type="text"], textarea {
+								&:focus {
+									background: lighten($dark, 80%);
+									color: $dark;
+									box-shadow: none;
+								}//focus
+							}//input
+						}//form
+					}//left
+					&__right {
+						background: $gray;
+						.column-wrapper {
+							p {
+								padding: 13px 35px;
+								text-align: center;
+								font-size: 1.4em;
+								line-height: 1.2em;
+								letter-spacing: 0.05em;
+							}//p
+							ul {
+								list-style-type: none;
+								text-align: center;
+								font-size: 1.4em;
+								line-height: 1.2em;
+								letter-spacing: 0.05em;
+								padding: 25px 0;
+							}//ul
+						}//column-wrapper
+					}//right
+				}//mq max tablet
+				
+				/* MQ MIN HERE */
+				@include mqMin('tablet') {
+					&__left, &__right {
+						width: 100%;
+						display: inline-block;
+					}//left,right
+					&__right {
+						width: 50%;
+						float: right;
+						clear: right;
+						padding: 0;
+						background: $gray;
+						line-height: 1.35em;
+						.column-wrapper {
+							padding: 35px;
+							ul {
+								list-style-type: none;
+								padding: 5px 0;
+							}//ul
+						}//column-wrapper
+					}//right
+					&__left {
+						width: 50%;
+						h2 {
+							text-align: center;
+						}//h2
+						form {
+							padding: 35px;
+							label, input, textarea {
+								padding: 10px 0;
+								margin: 5px 0;
+								display: block;
+								float: left;
+								width: 90%;
+								text-align: center;
+								@include push--auto;
+							}//label, input, textarea
+							label {
+								font-size: .85em;
+								text-align: left;
+							}//label
+							input[type="submit"] {
+								margin-top: 45px;
+								margin-right: 10%;
+								float: right;
+								outline: none;
+								border: 1px solid transparent;
+								box-shadow: none;
+								width: 125px;
+								font-size: .75em;
+								color: $white;
+								background: $buttonC;
+								text-transform: uppercase;
+								font-weight: $normal;
+								letter-spacing: 0.05em;
+								@include transition(.1s all ease-in-out);
+								&:hover {
+									border: 1px solid $buttonC;
+									background: $buttonCH;
+									cursor: pointer;
+								}//hover
+							}//input submit
+								input[type="text"], textarea {
+								&:focus {
+									background: lighten($dark, 80%);
+									color: $dark;
+									box-shadow: none;
+								}//focus
+							}//input
+						}//form
+					}//left
+				}//mq min tablet				
+			
+			}//column
+		}//wrapper
+	}//container
+}//main
